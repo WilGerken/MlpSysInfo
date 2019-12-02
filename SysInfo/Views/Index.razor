@@ -1,0 +1,29 @@
+﻿@page "/Views/Index"
+@inject SysInfo.ViewModels.IIndex_ViewModel _ViewModel
+
+<h1>System Info Map</h1>
+
+@if (_ViewModel.Domain_EditList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{ 
+<table class="table" Style="border:solid" >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in _ViewModel.Domain_EditList)
+        {
+            <tr>
+                <td>@item.DomainNm</td>
+                <td>@item.DescTxt</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
